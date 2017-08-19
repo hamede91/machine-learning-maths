@@ -1,5 +1,6 @@
 from numpy import *
 
+
 def main():
     #load the data
     points = genfromtxt('data.csv', delimiter=",")
