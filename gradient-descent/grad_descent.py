@@ -1,4 +1,5 @@
 from __future__ import print_function
+import matplotlib.pyplot as plt
 from numpy import *
 
 def compute_error(b, m, points):
@@ -55,6 +56,18 @@ def main():
     [b, m] = gradient_descent(b_init, m_init, learning_rate, num_iterations, points)
     print("After {} iterations, b = {}, m = {}, error = {}".format(num_iterations, b, m, compute_error(b, m, points)))
 
+    #plot line of best fit
+    plt.figure(2)
+    plt.plot(points[:, 0], points[:, 1], 'bo', label = "Training data")
+    x_points = arange(0, 130)
+    y_points = m * x_points + b
+    plt.plot(x_points, y_points, label="Line of best fit")
+    plt.xlabel("x values")
+    plt.ylabel("y values")
+
+    plt.title("Gradient descent")
+    plt.legend()
+    plt.show()
 
 
 if __name__ == '__main__':
